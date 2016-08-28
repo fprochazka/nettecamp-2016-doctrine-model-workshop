@@ -33,3 +33,6 @@ session:
 services:
     routerFactory: App\Application\RouterFactory
     router: @routerFactory::createRouter
+
+    - App\Order\OrderFacade
+    - App\Order\OrderRepository
