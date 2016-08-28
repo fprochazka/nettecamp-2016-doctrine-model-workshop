@@ -15,6 +15,10 @@ doctrine:
 
 * `php bin/console.php orm:sch:up --force` (nepřepište si db :P)
 
+## Reading list
+
+* https://www.zdrojak.cz/clanky/architektura-aplikace-nad-doctrine-2/
+
 ## Requests
 
 ### `POST /v1/salesman/create`
