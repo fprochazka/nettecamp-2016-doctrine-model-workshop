@@ -20,4 +20,5 @@ session:
 
 
 services:
-	router: App\RouterFactory::createRouter
+    routerFactory: App\Application\RouterFactory
+    router: @routerFactory::createRouter
