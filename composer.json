@@ -29,5 +29,10 @@
 			"App\\": "src/"
 		}
 	},
+	"autoload-dev": {
+		"psr-4": {
+			"App\\": "tests/"
+		}
+	},
 	"minimum-stability": "stable"
 }
