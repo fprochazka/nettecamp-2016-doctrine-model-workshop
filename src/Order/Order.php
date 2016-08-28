@@ -14,6 +14,8 @@ use Ramsey\Uuid\Uuid;
 class Order
 {
 
+	const BABIS_DEFAULT_SHARE = 30;
+
 	/**
 	 * @ORM\Id()
 	 * @ORM\Column(type="uuid")
@@ -21,9 +23,50 @@ class Order
 	 */
 	private $id;
 
-	public function __construct()
+	/**
+	 * @ORM\Column(type="datetime")
+	 * @var \DateTime
+	 */
+	private $createdDate;
+
+	/**
+	 * @ORM\Column(type="integer")
+	 * @var integer
+	 */
+	private $amount;
+
+	/**
+	 * @ORM\Column(type="integer")
+	 * @var integer
+	 */
+	private $taxRate;
+
+	/**
+	 * @ORM\Column(type="integer")
+	 * @var integer
+	 */
+	private $babisPercentageShare;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity=Salesman::class, cascade={"persist"})
+	 * @ORM\JoinColumn(nullable=FALSE)
+	 * @var Salesman
+	 */
+	private $salesman;
+
+	public function __construct(
+		int $amount,
+		int $taxRate,
+		\DateTimeInterface $createdDate,
+		Salesman $salesman
+	)
 	{
 		$this->id = Uuid::uuid4();
+		$this->babisPercentageShare = self::BABIS_DEFAULT_SHARE;
+		$this->amount = $amount;
+		$this->createdDate = $createdDate;
+		$this->taxRate = $taxRate;
+		$this->salesman = $salesman;
 	}
 
 	public function getId(): Uuid
