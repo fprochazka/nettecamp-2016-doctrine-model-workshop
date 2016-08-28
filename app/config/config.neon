@@ -18,6 +18,8 @@ application:
 doctrine:
     metadata:
         App: %srcDir%
+    types:
+        uuid: Ramsey\Uuid\Doctrine\UuidType
 
 
 events:
