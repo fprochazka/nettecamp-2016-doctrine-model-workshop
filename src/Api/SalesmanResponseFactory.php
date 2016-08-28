@@ -12,7 +12,7 @@ class SalesmanResponseFactory
 	public function createSalesmanResponse(Salesman $salesman): array
 	{
 		return [
-			'id' => $salesman->getId(),
+			'id' => $salesman->getId()->toString(),
 			'name' => $salesman->getName(),
 			'registrationId' => $salesman->getRegistrationId(),
 		];

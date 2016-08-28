@@ -41,6 +41,7 @@ class SalesmanPresenter extends Nette\Application\UI\Presenter
 			$this->sendJson($this->salesmanResponseFactory->createSalesmanResponse($salesman));
 
 		} catch (\App\Salesman\Exceptions\SalesmanNotFoundByIdException $e) {
+			$this->getHttpResponse()->setCode(Nette\Http\IResponse::S404_NOT_FOUND);
 			$this->sendJson([
 				'error' => [
 					'code' => 'salesman-not-found',
