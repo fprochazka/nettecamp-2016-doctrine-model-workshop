@@ -25,9 +25,13 @@ class RouterFactory
 	public function createRouter(): Nette\Application\IRouter
 	{
 		$router = new RouteList;
-		$router[] = new Route('v1/<presenter>/<action>', [
+		$router[] = new Route('v1/<presenter>/<action>[/<id>]', [
 			NULL => [
 				Route::FILTER_IN => function (array $params): array {
+					if (!$this->httpRequest->isMethod(Nette\Http\IRequest::POST)) {
+						return $params;
+					}
+
 					// naprasáka, takhle se nepíše REST router
 					$params['data'] = Json::decode(
 						$this->httpRequest->getRawBody(),
