@@ -39,3 +39,6 @@ services:
 
     - App\Salesman\SalesmanFacade
     - App\Salesman\SalesmanService
+    - App\Salesman\SalesmanRepository
+
+    - App\Api\SalesmanResponseFactory
