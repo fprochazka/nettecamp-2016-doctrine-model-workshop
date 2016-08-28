@@ -13,3 +13,5 @@ doctrine:
     password: heslo
     dbname: nettecamp_workshop_doctrine
 ```
+
+* `php bin/console.php orm:sch:up --force` (nepřepište si db :P)
