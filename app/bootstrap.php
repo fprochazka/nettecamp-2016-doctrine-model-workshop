@@ -19,6 +19,10 @@ $configurator->createRobotLoader()
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 
+\Tracy\Dumper::$objectExporters[\Ramsey\Uuid\Uuid::class] = function (\Ramsey\Uuid\Uuid $uuid): array {
+	return ['value' => $uuid->toString()];
+};
+
 $container = $configurator->createContainer();
 
 return $container;
