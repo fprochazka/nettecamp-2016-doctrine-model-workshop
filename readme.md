@@ -1,5 +1,4 @@
-nettecamp-doctrine-model-workshop
-=================
+# nettecamp-doctrine-model-workshop
 
 Requirement: PHP 7
 
@@ -15,3 +14,14 @@ doctrine:
 ```
 
 * `php bin/console.php orm:sch:up --force` (nepřepište si db :P)
+
+## Requests
+
+### `POST /v1/salesman/create`
+
+```json
+{
+    "name": "Filip",
+    "registrationId": "12345"
+}
+```

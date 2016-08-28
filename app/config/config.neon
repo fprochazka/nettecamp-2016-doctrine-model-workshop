@@ -36,3 +36,5 @@ services:
 
     - App\Order\OrderFacade
     - App\Order\OrderRepository
+
+    - App\Salesman\SalesmanFacade

@@ -19,12 +19,14 @@ class OrderFacade
 		$this->em = $em;
 	}
 
-	public function createOrder()
+	public function createOrder(): Order
 	{
 		$order = new Order();
 
 		$this->em->persist($order);
 		$this->em->flush();
+
+		return $order;
 	}
 
 }

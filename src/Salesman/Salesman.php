@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Order;
+namespace App\Salesman;
 
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
@@ -12,8 +12,6 @@ use Ramsey\Uuid\Uuid;
  */
 class Salesman
 {
-
-	const BABIS_DEFAULT_SHARE = 30;
 
 	/**
 	 * @ORM\Id()
@@ -44,6 +42,16 @@ class Salesman
 	public function getId(): Uuid
 	{
 		return $this->id;
+	}
+
+	public function getName(): string
+	{
+		return $this->name;
+	}
+
+	public function getRegistrationId(): string
+	{
+		return $this->registrationId;
 	}
 
 }

@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Order;
 
+use App\Salesman\Salesman;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 
