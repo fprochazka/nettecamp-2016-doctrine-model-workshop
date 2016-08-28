@@ -20,11 +20,9 @@ class SalesmanPresenterTest extends DbTestCase
 	{
 		$salesmanPresenter = $this->createPresenter('Salesman');
 
-		$response = $this->runAction(
+		$response = $this->postAction(
 			$salesmanPresenter,
 			'Salesman',
-			'POST',
-			'create',
 			[
 				'name' => 'Filip',
 				'registrationId' => '123456',

@@ -42,22 +42,37 @@ abstract class DbTestCase extends TestCase
 		return $presenterFactory->createPresenter($name);
 	}
 
-	protected function runAction(
+	protected function postAction(
 		IPresenter $presenter,
 		string $name,
-		string $method,
-		string $action,
 		array $data
 	): JsonResponse
 	{
 		return $presenter->run(
 			new Request(
 				$name,
-				$method,
+				'POST',
 				[
-					'action' => $action,
+					'action' => 'create',
 					'data' => $data,
 				]
+			)
+		);
+	}
+
+	protected function getAction(
+		IPresenter $presenter,
+		string $name,
+		array $data
+	): JsonResponse
+	{
+		return $presenter->run(
+			new Request(
+				$name,
+				'GET',
+				[
+					'action' => 'read',
+				] + $data
 			)
 		);
 	}
