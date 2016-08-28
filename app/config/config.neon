@@ -1,4 +1,5 @@
 parameters:
+    srcDir: %appDir%/../src
 
 
 application:
