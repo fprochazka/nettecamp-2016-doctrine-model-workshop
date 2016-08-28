@@ -15,6 +15,15 @@ application:
 		*: App\*Module\Presenters\*Presenter
 
 
+doctrine:
+    metadata:
+        App: %srcDir%
+
+
+events:
+    debugger: off
+
+
 session:
 	expiration: 14 days
 
