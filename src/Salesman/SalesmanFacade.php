@@ -14,17 +14,23 @@ class SalesmanFacade
 	 */
 	private $em;
 
-	public function __construct(EntityManager $em)
+	/**
+	 * @var \App\Salesman\SalesmanService
+	 */
+	private $salesmanService;
+
+	public function __construct(
+		SalesmanService $salesmanService,
+		EntityManager $em
+	)
 	{
 		$this->em = $em;
+		$this->salesmanService = $salesmanService;
 	}
 
 	public function createSalesman(string $name, string $registrationId): Salesman
 	{
-		$salesman = new Salesman(
-			$name,
-			$registrationId
-		);
+		$salesman = $this->salesmanService->createSalesman($name, $registrationId);
 
 		$this->em->persist($salesman);
 		$this->em->flush();

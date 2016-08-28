@@ -38,3 +38,4 @@ services:
     - App\Order\OrderRepository
 
     - App\Salesman\SalesmanFacade
+    - App\Salesman\SalesmanService
